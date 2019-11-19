@@ -134,8 +134,10 @@ dfn {
   font-style: italic; }
 
 b,
+
 strong {
   font-weight: bolder; }
+  
 
 small {
   font-size: 80%; }
@@ -11256,7 +11258,7 @@ textarea[resize="horizontal"] {
     margin-right: 0; }
   .navbar-vertical .navbar-brand-img,
   .navbar-vertical .navbar-brand > img {
-    max-width: 100%;
+    max-width: 110%;
     max-height: 2rem; }
   @media (min-width: 768px) {
     .navbar-vertical .navbar-collapse {
@@ -11499,6 +11501,7 @@ textarea[resize="horizontal"] {
         flex-direction: column;
         align-items: stretch;
         margin-left: -1.5rem;
+        margin-top: -2rem;
         margin-right: -1.5rem;
         padding-left: 1.5rem;
         padding-right: 1.5rem; }

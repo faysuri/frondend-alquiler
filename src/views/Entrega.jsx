@@ -17,15 +17,15 @@ import {
   Col,
 
 } from "reactstrap";
-class vehiculo extends React.Component {
+class Entrega extends React.Component {
   render() {
     return (
       <>
         <div>
-          <h1> Registrar vehículo</h1>
+          <h1> Registrar Entrega</h1>
         </div>
-        <Container className="mt-30" fluid>
-
+        <Container className="mt--30" fluid>
+        
           <Row className="justify-content-center">
 
             <Col lg="5" md="18">
@@ -44,41 +44,6 @@ class vehiculo extends React.Component {
                 <CardBody className="px-lg-5 py-lg-4">
                   <div className="text-center text-muted mb-4">
                     <small>Ingrese sus datos</small>
-                  </div>
-                  <div className="text-center ">
-
-                    <div className="Seleccionar">
-                      <FormGroup>
-                        <InputGroup className="input-group-alternative mb-0">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-
-                              <Input placeholder=" Tipo de vehículo" />
-                              <select>
-                                <option>Seleccionar</option>
-                                <option>Carro</option>
-                                <option>Moto</option>
-                              </select>
-                            </InputGroupText>
-                          </InputGroupAddon>
-                        </InputGroup>
-                      </FormGroup>
-                      <FormGroup>
-                        <InputGroup className="input-group-alternative mb-3">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-
-                              <Input placeholder=" Seguro" />
-                              <select>
-                                <option>Seleccionar</option>
-                                <option>Todo riesgo</option>
-                                <option>Seguro de ley</option>
-                              </select>
-                            </InputGroupText>
-                          </InputGroupAddon>
-                        </InputGroup>
-                      </FormGroup>
-                    </div>
                   </div>
                   <Form role="form">
                     <formaGroup>
@@ -135,34 +100,14 @@ class vehiculo extends React.Component {
                         <Input placeholder="Color" type="text" />
                       </InputGroup>
                     </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="No. pasajeros" type="tel" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Placa" type="email" />
-                      </InputGroup>
-                    </FormGroup>
-
+                   
                     <Row className="my-4">
                       <Col xs="12">
 
                       </Col>
                     </Row>
                     <div className="text-center">
-                      <Button className="mt-4" color="primary" type="button">
+                      <Button className="mt-3" color="primary" type="button">
                         Registrar
                   </Button>
                     </div>
@@ -170,13 +115,13 @@ class vehiculo extends React.Component {
                 </CardBody>
               </Card>
             </Col>
-
+            
           </Row>
-
+        
         </Container>
       </>
     );
   }
 }
 
-export default vehiculo;
+export default Entrega;

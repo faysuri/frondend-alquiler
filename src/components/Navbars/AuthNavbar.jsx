@@ -20,7 +20,6 @@ import { Link } from "react-router-dom";
 // reactstrap components
 import {
   UncontrolledCollapse,
-  NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
@@ -39,9 +38,7 @@ class AdminNavbar extends React.Component {
           expand="md"
         >
           <Container className="px-4">
-            <NavbarBrand to="/" tag={Link}>
-              <img alt="..." src={require("assets/img/brand/argon-react-white.png")} />
-            </NavbarBrand>
+           
             <button className="navbar-toggler" id="navbar-collapse-main">
               <span className="navbar-toggler-icon" />
             </button>
@@ -52,7 +49,7 @@ class AdminNavbar extends React.Component {
                     <Link to="/">
                       <img
                         alt="..."
-                        src={require("assets/img/brand/argon-react.png")}
+                        src={require("assets/img/theme/av.png")}
                       />
                     </Link>
                   </Col>
@@ -71,7 +68,7 @@ class AdminNavbar extends React.Component {
                 <NavItem>
                   <NavLink className="nav-link-icon" to="/" tag={Link}>
                     <i className="ni ni-planet" />
-                    <span className="nav-link-inner--text">Dashboard</span>
+                    <span className="nav-link-inner--text">Principal</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -81,7 +78,7 @@ class AdminNavbar extends React.Component {
                     tag={Link}
                   >
                     <i className="ni ni-circle-08" />
-                    <span className="nav-link-inner--text">Register</span>
+                    <span className="nav-link-inner--text">Registrar</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -101,9 +98,10 @@ class AdminNavbar extends React.Component {
                     tag={Link}
                   >
                     <i className="ni ni-single-02" />
-                    <span className="nav-link-inner--text">Profile</span>
+                    <span className="nav-link-inner--text">Perfil</span>
                   </NavLink>
                 </NavItem>
+               
               </Nav>
             </UncontrolledCollapse>
           </Container>
