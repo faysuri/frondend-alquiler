@@ -17,8 +17,21 @@ import {
   Col,
 
 } from "reactstrap";
+import Select from 'react-select'
+
 class vehiculo extends React.Component {
+
+  state = {
+    tipoSelected: null
+  }
+
   render() {
+
+    const tipo_vehiculo = [
+      { label: 'Moto', value: 1 },
+      { label: 'Carro', value: 2 },
+    ]
+
     return (
       <>
         <div>
@@ -45,24 +58,19 @@ class vehiculo extends React.Component {
                   <div className="text-center text-muted mb-4">
                     <small>Ingrese sus datos</small>
                   </div>
+
+                    <Row between="xs" className="mb-3 mt-5">
+                      <Col xl='12'>
+                        <label className="form-control-label" htmlFor="input-username"> Tipo de vehiculo</label>
+                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={tipo_vehiculo} placeholder={'Seleccione una unidad territorial'}/>
+                      </Col>
+                    </Row>
+
                   <div className="text-center ">
+     
 
                     <div className="Seleccionar">
-                      <FormGroup>
-                        <InputGroup className="input-group-alternative mb-0">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-
-                              <Input placeholder=" Tipo de vehículo" />
-                              <select>
-                                <option>Seleccionar</option>
-                                <option>Carro</option>
-                                <option>Moto</option>
-                              </select>
-                            </InputGroupText>
-                          </InputGroupAddon>
-                        </InputGroup>
-                      </FormGroup>
+                      
                       <FormGroup>
                         <InputGroup className="input-group-alternative mb-3">
                           <InputGroupAddon addonType="prepend">
@@ -89,7 +97,16 @@ class vehiculo extends React.Component {
                               <span class="input-group-text">
                                 <i class="fas fa-search"></i></span>
                             </div>
-                            <input class="form-control" type="text" placeholder="Identificación"></input>
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="text" placeholder="Identificación"/> 
+                              </Col>
+                              <Col xl="1" className="ml-2">
+                                <Button color="success" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
                           </div>
                         </div>
                       </div>
