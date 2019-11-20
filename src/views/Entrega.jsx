@@ -46,19 +46,24 @@ class Entrega extends React.Component {
                     <small>Ingrese sus datos</small>
                   </div>
                   <Form role="form">
-                    <formaGroup>
+                   
+                  <formaGroup>
                       <div className="text-center">
                         <div className="mb-4 form-group">
                           <div class="input-group-alternative input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                <i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" type="text" placeholder="Identificación"></input>
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="text" placeholder="Placa vehículo"/> 
+                              </Col>
+                              <Col xl="1" className="ml-1">
+                                <Button color="primary" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
                           </div>
                         </div>
                       </div>
-
                     </formaGroup>
                     <FormGroup>
                       <InputGroup className="input-group-alternative mb-3">
@@ -67,7 +72,7 @@ class Entrega extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Cilindraje" type="text" />
+                        <Input placeholder=" Identificación" type="number" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -77,7 +82,7 @@ class Entrega extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Modelo" type="text" />
+                        <Input placeholder="Fecha" type="date" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -87,7 +92,7 @@ class Entrega extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Marca" type="text" />
+                        <Input placeholder=" Estado de entrega" type="text" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -97,7 +102,17 @@ class Entrega extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="Color" type="text" />
+                        <Input placeholder="Descripción" type="text" />
+                      </InputGroup>
+                    </FormGroup>
+                    <FormGroup>
+                      <InputGroup className="input-group-alternative">
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="ni ni-hat-3" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input placeholder="Estado entrega" type="text" />
                       </InputGroup>
                     </FormGroup>
                    

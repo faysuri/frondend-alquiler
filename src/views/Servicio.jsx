@@ -17,8 +17,18 @@ import {
   Col,
 
 } from "reactstrap";
+
+import Select from 'react-select'
 class Servicio extends React.Component {
+  state = {
+    tipoSelected: null
+  }
   render() {
+    const tipo_servicio = [
+      { label: 'Lavado', value: 1 },
+      { label: 'Mecanica', value: 2 },
+      { label: 'Pintura', value: 3 },
+    ]
     return (
       <>
         <div>
@@ -46,19 +56,29 @@ class Servicio extends React.Component {
                     <small>Ingrese sus datos</small>
                   </div>
                   <Form role="form">
+                  <Row between="xs" className="mb-3 mt-5">
+                      <Col xl='12'>
+                        <label className="form-control-label" htmlFor="input-username"> Tipo de Servicio</label>
+                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={tipo_servicio} placeholder={'Seleccione un tipo de servicio'}/>
+                      </Col>
+                    </Row>
                     <formaGroup>
                       <div className="text-center">
                         <div className="mb-4 form-group">
                           <div class="input-group-alternative input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                <i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" type="text" placeholder="Identificación"></input>
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="text" placeholder="Nombre"/> 
+                              </Col>
+                              <Col xl="1" className="ml-1">
+                                <Button color="primary" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
                           </div>
                         </div>
                       </div>
-
                     </formaGroup>
                     <FormGroup>
                       <InputGroup className="input-group-alternative mb-3">
@@ -67,7 +87,18 @@ class Servicio extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Cilindraje" type="text" />
+                        <Input placeholder="Identificacion" type="number" />
+                      </InputGroup>
+                    </FormGroup>
+                    <FormGroup></FormGroup>
+                    <FormGroup>
+                      <InputGroup className="input-group-alternative mb-3">
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="ni ni-hat-3" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input placeholder=" Nombre" type="text" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -77,7 +108,7 @@ class Servicio extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Modelo" type="text" />
+                        <Input placeholder=" Descripcion" type="text" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -87,7 +118,7 @@ class Servicio extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Marca" type="text" />
+                        <Input placeholder="Valor" type="number" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -97,30 +128,9 @@ class Servicio extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="Color" type="text" />
+                        <Input placeholder="Fecha" type="date" />
                       </InputGroup>
                     </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="No. pasajeros" type="tel" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Placa" type="email" />
-                      </InputGroup>
-                    </FormGroup>
-
                     <Row className="my-4">
                       <Col xs="12">
 

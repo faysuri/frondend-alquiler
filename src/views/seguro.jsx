@@ -12,8 +12,17 @@ import {
   Row,
   Col
 } from "reactstrap";
+
+import Select from 'react-select'
 class seguro extends Component {
+  state = {
+  tipoSelected: null
+  }
   render() {
+    const tipo_seguro = [
+      { label: 'Todo riesgo', value: 1 },
+      { label: 'Seguro obligatorio', value: 2 },
+    ]
     return (
       <div>
 
@@ -37,36 +46,33 @@ class seguro extends Component {
               <div className="text-center text-muted mb-4">
                 <small>Ingrese los datos</small>
               </div>
+              <Row between="xs" className="mb-3 mt-3">
+                      <Col xl='12'>
+                        <label className="form-control-label" htmlFor="input-username"> Tipo de seguro</label>
+                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={tipo_seguro} placeholder={'Seleccione un tipo de seguro'}/>
+                      </Col>
+                    </Row>
               <Form role="form">
 
-                <formaGroup>
-                  
-                <div className="text-center">
-                      <div className="Seleccionar">
-                        
-                    <select>
-                      <option>Seleccionar</option>
-                      <option>Todo riesgo</option>
-                      <option>Seguro obligatorio</option>
-                    </select>
-                    </div>
-                  </div>
-                </formaGroup>
-                <formaGroup>
-                  <div className="text-center">
-                    <div className="mb-4 form-group">
-                      <div class="input-group-alternative input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="fas fa-search"></i></span>
+               
+              <formaGroup>
+                      <div className="text-center">
+                        <div className="mb-4 form-group">
+                          <div class="input-group-alternative input-group">
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="text" placeholder="Nombre"/> 
+                              </Col>
+                              <Col xl="1" className="ml-1">
+                                <Button color="primary" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
+                          </div>
                         </div>
-                        <input class="form-control" type="text" placeholder="Consultar"></input>
                       </div>
-                    </div>
-
-                  </div>
-
-                </formaGroup>
+                    </formaGroup>
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-3">
                     <InputGroupAddon addonType="prepend">

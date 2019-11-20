@@ -21,7 +21,6 @@ import React from "react";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -37,31 +36,32 @@ class Register extends React.Component {
   render() {
     return (
       <>
-        <Col lg="6" md="8">
+        <Col lg="5" md="18">
           <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              
-            </CardHeader>
-            <CardBody className="px-lg-4 py-lg-1">
+           
+            <CardBody className="px-lg-5 py-lg-1">
               <div className="text-center text-muted mb-4">
                 <small>Ingrese sus datos</small>
               </div>
               <Form role="form">
-              
               <formaGroup>
-              <div className="text-center">
-              <div className="mb-4 form-group">
-                <div class="input-group-alternative input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-search"></i></span>
-              </div>
-              <input class="form-control" type="text" placeholder="Consultar"></input>
-              </div>
-              </div>
-                </div>
-              
-              </formaGroup>
+                      <div className="text-center">
+                        <div className="mb-3 form-group">
+                          <div class="input-group-alternative input-group">
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="number" placeholder="Identificación"/> 
+                              </Col>
+                              <Col xl="1" className="ml-1">
+                                <Button color="primary" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
+                          </div>
+                        </div>
+                      </div>
+                    </formaGroup>
               <FormGroup>
                   <InputGroup className="input-group-alternative mb-3">
                     <InputGroupAddon addonType="prepend">

@@ -38,18 +38,23 @@ class Tipo_servicio extends Component{
               <Form role="form">
               
               <formaGroup>
-              <div className="text-center">
-              <div className="mb-4 form-group">
-                <div class="input-group-alternative input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-search"></i></span>
-              </div>
-              <input class="form-control" type="text" placeholder="Consultar"></input>
-              </div>
-              </div>
-                </div>
-              </formaGroup>
+                      <div className="text-center">
+                        <div className="mb-4 form-group">
+                          <div class="input-group-alternative input-group">
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="text" placeholder="Tipo de servicio"/> 
+                              </Col>
+                              <Col xl="1" className="ml-1">
+                                <Button color="primary" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
+                          </div>
+                        </div>
+                      </div>
+                    </formaGroup>
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-3">
                     <InputGroupAddon addonType="prepend">
