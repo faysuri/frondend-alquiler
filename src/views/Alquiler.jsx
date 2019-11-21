@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 // reactstrap components
 
 // reactstrap components
@@ -6,27 +6,31 @@ import {
   Button,
   Card,
   CardBody,
-  FormGroup,
+  CardTitle,
   Form,
   Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Row,
   Col,
 
 } from "reactstrap";
-class Alquiler extends React.Component {
+
+import Select from 'react-select'
+class Alquiler extends Component {
+  state = {
+    tipoSelected: null
+  }
   render() {
+    const tipo_vehiculo = [
+      { label: 'Moto', value: 1 },
+      { label: 'Carro', value: 2 },
+    ]
     return (
       <>
         <div>
           <h1> Alquiler</h1>
         </div>
         <div className="margen" >
-        
           <Row className="justify-content-center">
-            
             <Col lg="5" md="18">
               <Card className="bg-secondary shadow border-0">
                 <Row className="justify-content-center">
@@ -44,90 +48,129 @@ class Alquiler extends React.Component {
                   <div className="text-center text-muted mb-4">
                     <small>Ingrese sus datos</small>
                   </div>
+                  <Row between="xs" className="mb-3 mt-5">
+                      <Col xl='12'>
+                        <label className="form-control-label" htmlFor="input-username"> Tipo de vehiculo</label>
+                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={tipo_vehiculo} placeholder={'Seleccione un tipo de vehícculo'}/>
+                      </Col>
+                    </Row>
                   <Form role="form">
-                    <formaGroup>
+                  <formaGroup>
                       <div className="text-center">
                         <div className="mb-4 form-group">
                           <div class="input-group-alternative input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                <i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" type="text" placeholder="Identificación"></input>
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="number" placeholder="Identificación"/> 
+                              </Col>
+                              <Col xl="1" className="ml-1">
+                                <Button color="primary" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
                           </div>
                         </div>
                       </div>
-
                     </formaGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Cilindraje" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Modelo" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Marca" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Color" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="No. pasajeros" type="tel" />
-                      </InputGroup>
-                    </FormGroup>
-                    
-                    <Row className="my-4">
-                      <Col xs="12">
-
-                      </Col>
-                    </Row>
-                    <div className="text-center">
-                      <Button className="mt-3" color="primary" type="button">
-                        Registrar
-                  </Button>
-                    </div>
+                   
                   </Form>
                 </CardBody>
               </Card>
             </Col>
             
           </Row>
- 
+          
         </div>
+            <div className="header-body">
+              {/* Card stats */}
+              <Row>
+                <Col lg="6" xl="3">
+                  <Card className="card-stats mb-4 mb-xl-0">
+                    <CardBody>
+                      <Row>
+                        <div className="col">
+                          <CardTitle
+                            tag="h5"
+                            className="text-uppercase text-muted mb-0"
+                          >
+                            Mazda
+                          </CardTitle>
+                          <img
+                            alt="..."
+                            className="rounded-circle"
+                            src={require("assets/img/theme/v2.jpg")}
+                          />
+                        </div>
+                      </Row>
+                    </CardBody>
+                  </Card>
+                </Col>
+                <Col lg="6" xl="3">
+                  <Card className="card-stats mb-4 mb-xl-0">
+                    <CardBody>
+                      <Row>
+                        <div className="col">
+                          <CardTitle
+                            tag="h5"
+                            className="text-uppercase text-muted mb-0"
+                          >
+                            Mazda
+                          </CardTitle>
+                          <img
+                            alt="..."
+                            className="rounded-circle"
+                            src={require("assets/img/theme/v2.jpg")}
+                          />
+                        </div>
+                      </Row>
+                    </CardBody>
+                  </Card>
+                </Col>
+                <Col lg="6" xl="3">
+                  <Card className="card-stats mb-4 mb-xl-0">
+                    <CardBody>
+                      <Row>
+                        <div className="col">
+                          <CardTitle
+                            tag="h5"
+                            className="text-uppercase text-muted mb-0"
+                          >
+                            Mazda
+                          </CardTitle>
+                          <img
+                            alt="..."
+                            className="rounded-circle"
+                            src={require("assets/img/theme/v2.jpg")}
+                          />
+                        </div>
+                      </Row>
+                    </CardBody>
+                  </Card>
+                </Col>
+                <Col lg="6" xl="3">
+                  <Card className="card-stats mb-4 mb-xl-0">
+                    <CardBody>
+                      <Row>
+                        <div className="col">
+                          <CardTitle
+                            tag="h5"
+                            className="text-uppercase text-muted mb-0"
+                          >
+                            Mazda
+                          </CardTitle>
+                          <img
+                            alt="..."
+                            className="rounded-circle"
+                            src={require("assets/img/theme/v2.jpg")}
+                          />
+                        </div>
+                      </Row>
+                    </CardBody>
+                  </Card>
+                </Col>
+              </Row>
+            </div>
       </>
     );
   }

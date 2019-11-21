@@ -58,7 +58,7 @@ class Profile extends React.Component {
                       onClick={e => e.preventDefault()}
                       size="sm"
                     >
-                      Message
+                      Mensaje
                     </Button>
                   </div>
                 </CardHeader>

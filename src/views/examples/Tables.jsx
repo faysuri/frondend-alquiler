@@ -3,10 +3,14 @@ import React from "react";
 
 // reactstrap components
 import {
-  Button,
   Card,
   CardHeader,
-
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Media,
+  Badge,
   Table,
   Container,
   Row,
@@ -19,83 +23,337 @@ class Tables extends React.Component {
     return (
       <>
         <Row className="justify-content-center">
-          <Container className="mt--17" fluid>
+          <Container className="mt-17" fluid>
             <Row className="mt-5">
               <Col className="mb-5 mb-xl-0" xl="8">
-                <Card className="shadow">
-                  <CardHeader className="border-0">
+                <Card className="bg-default shadow">
                     <Row className="align-items-center">
-                      <div className="col">
-                        <h3 className="mb-0">Lista Clientes</h3>
-                      </div>
-                      <div className="col text-right">
-                        <Button
-                          color="primary"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                          size="sm"
-                        >
-                          Consultar
-            </Button>
-                      </div>
+                    <CardHeader className="bg-transparent border-0">
+                        <h3 className="text-white mb-0">Detalle vehículo</h3>
+                      </CardHeader>
                     </Row>
-                  </CardHeader>
-                  <Table className="align-items-center table-flush" responsive>
-                    <thead className="thead-light">
-                      <tr>
-                        <th scope="col">Identificación</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col">Correo</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">/argon/</th>
-                        <td>4,569</td>
-                        <td>340</td>
-                        <td>
-                          <i className="fas fa-arrow-up text-success mr-3" />{" "}
-                          46,53%
-            </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">/argon/index.html</th>
-                        <td>3,985</td>
-                        <td>319</td>
-                        <td>
-                          <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                          46,53%
-            </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">/argon/charts.html</th>
-                        <td>3,513</td>
-                        <td>294</td>
-                        <td>
-                          <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                          36,49%
-            </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">/argon/tables.html</th>
-                        <td>2,050</td>
-                        <td>147</td>
-                        <td>
-                          <i className="fas fa-arrow-up text-success mr-3" />{" "}
-                          50,87%
-            </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">/argon/profile.html</th>
-                        <td>1,795</td>
-                        <td>190</td>
-                        <td>
-                          <i className="fas fa-arrow-down text-danger mr-3" />{" "}
-                          46,53%
-            </td>
-                      </tr>
-                    </tbody>
+                  <Table className="align-items-center table-dark table-flush" responsive>
+                  <thead className="thead-dark">
+                    <tr>
+                      <th scope="col">Vehículo</th>
+                      <th scope="col">Placa</th>
+                      <th scope="col">Marcar</th>
+                      <th scope="col">Modelo</th>
+                      <th scope="col">Opciones</th>
+                      <th scope="col" />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <Media className="align-items-center">
+                          <a
+                            className="avatar rounded-circle mr-3"
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            <img
+                              alt="..."
+                              src={require("assets/img/theme/v4.jpg")}
+                            />
+                          </a>
+                          <Media>
+                            <span className="mb-0 text-sm">
+                              Argon Design
+                            </span>
+                          </Media>
+                        </Media>
+                      </th>
+                      <td>XAC123M</td>
+                      <td>
+                        <Badge color="" className="badge-dot mr-4">
+                          pending
+                        </Badge>
+                      </td>
+                      <td>2018</td>
+                      <td className="text-right">
+                        <UncontrolledDropdown>
+                          <DropdownToggle
+                            className="btn-icon-only text-light"
+                            href="#pablo"
+                            role="button"
+                            size="sm"
+                            color=""
+                            onClick={e => e.preventDefault()}
+                          >
+                            <i className="fas fa-ellipsis-v" />
+                          </DropdownToggle>
+                          <DropdownMenu className="dropdown-menu-arrow" right>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              ALQUILER
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Another action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Something else
+                            </DropdownItem>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <Media className="align-items-center">
+                          <a
+                            className="avatar rounded-circle mr-3"
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            <img
+                              alt="..."
+                              src={require("assets/img/theme/v4.jpg")}
+                            />
+                          </a>
+                          <Media>
+                            <span className="mb-0 text-sm">
+                              Angular Now
+                            </span>
+                          </Media>
+                        </Media>
+                      </th>
+                      <td>GHJ987M</td>
+                      <td>
+                        <Badge color="" className="badge-dot">
+                          completed
+                        </Badge>
+                      </td>
+                      <td>2017</td>
+                      <td className="text-right">
+                        <UncontrolledDropdown>
+                          <DropdownToggle
+                            className="btn-icon-only text-light"
+                            href="#pablo"
+                            role="button"
+                            size="sm"
+                            color=""
+                            onClick={e => e.preventDefault()}
+                          >
+                            <i className="fas fa-ellipsis-v" />
+                          </DropdownToggle>
+                          <DropdownMenu className="dropdown-menu-arrow" right>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Alquiler
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Another action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Something 
+                            </DropdownItem>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <Media className="align-items-center">
+                          <a
+                            className="avatar rounded-circle mr-3"
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            <img
+                              alt="..."
+                              src={require("assets/img/theme/v4.jpg")}
+                            />
+                          </a>
+                          <Media>
+                            <span className="mb-0 text-sm">
+                              Black Dashboard
+                            </span>
+                          </Media>
+                        </Media>
+                      </th>
+                      <td>XFG098J</td>
+                      <td>
+                        <Badge color="" className="badge-dot mr-4">
+                          delayed
+                        </Badge>
+                      </td>
+                      <td>2017</td>
+                      <td className="text-right">
+                        <UncontrolledDropdown>
+                          <DropdownToggle
+                            className="btn-icon-only text-light"
+                            href="#pablo"
+                            role="button"
+                            size="sm"
+                            color=""
+                            onClick={e => e.preventDefault()}
+                          >
+                            <i className="fas fa-ellipsis-v" />
+                          </DropdownToggle>
+                          <DropdownMenu className="dropdown-menu-arrow" right>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Another action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Something else
+                            </DropdownItem>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <Media className="align-items-center">
+                          <a
+                            className="avatar rounded-circle mr-3"
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            <img
+                              alt="..."
+                              src={require("assets/img/theme/v4.jpg")}
+                            />
+                          </a>
+                          <Media>
+                            <span className="mb-0 text-sm">
+                              React Material
+                            </span>
+                          </Media>
+                        </Media>
+                      </th>
+                      <td>CFDT765G</td>
+                      <td>
+                        <Badge color="" className="badge-dot">
+                          Chevrolet
+                        </Badge>
+                      </td>
+                      <td className="text-right">
+                        <UncontrolledDropdown>
+                          <DropdownToggle
+                            className="btn-icon-only text-light"
+                            href="#pablo"
+                            role="button"
+                            size="sm"
+                            color=""
+                            onClick={e => e.preventDefault()}
+                          >
+                            <i className="fas fa-ellipsis-v" />
+                          </DropdownToggle>
+                          <DropdownMenu className="dropdown-menu-arrow" right>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Another action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Something 
+                            </DropdownItem>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <Media className="align-items-center">
+                          <a
+                            className="avatar rounded-circle mr-3"
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            <img
+                              alt="..."
+                              src={require("assets/img/theme/v4.jpg")}
+                            />
+                          </a>
+                          <Media>
+                            <span className="mb-0 text-sm">
+                              Vue Paper UI 
+                            </span>
+                          </Media>
+                        </Media>
+                      </th>
+                      <td>FVB435M</td>
+                      <td>
+                        <Badge color="" className="badge-dot mr-4">
+                          Renault
+                        </Badge>
+                      </td>
+                    
+                      <td className="text-right">
+                        <UncontrolledDropdown>
+                          <DropdownToggle
+                            className="btn-icon-only text-light"
+                            href="#pablo"
+                            role="button"
+                            size="sm"
+                            color=""
+                            onClick={e => e.preventDefault()}
+                          >
+                            <i className="fas fa-ellipsis-v" />
+                          </DropdownToggle>
+                          <DropdownMenu className="dropdown-menu-arrow" right>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Another action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={e => e.preventDefault()}
+                            >
+                              Something 
+                            </DropdownItem>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      </td>
+                    </tr>
+                  </tbody>
                   </Table>
                 </Card>
               </Col>

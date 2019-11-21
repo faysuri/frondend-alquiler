@@ -29,7 +29,7 @@ import {
   parseOptions
 } from "variables/charts.jsx";
 
-import Header from "components/Headers/Header.jsx";
+import UserHeader from "components/Headers/UserHeader.jsx";
 
 class Index extends React.Component {
   state = {
@@ -58,8 +58,7 @@ class Index extends React.Component {
   render() {
     return (
       <>
-        <Header />
-        {/* Page content */}
+      <UserHeader />
 
       </>
     );
