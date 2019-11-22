@@ -46,19 +46,23 @@ class Factura extends React.Component {
                     <small>Ingrese sus datos</small>
                   </div>
                   <Form role="form">
-                    <formaGroup>
+                  <formaGroup>
                       <div className="text-center">
                         <div className="mb-4 form-group">
                           <div class="input-group-alternative input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                <i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" type="text" placeholder="Identificación"></input>
+                            <Row>
+                              <Col xs='12' xl="10">
+                                <Input class="form-control" type="number" placeholder="Identificación"/> 
+                              </Col>
+                              <Col xl="1" className="ml-1">
+                                <Button color="primary" type="button">
+                                  <i class="fas fa-search"></i>
+                                </Button>
+                              </Col>
+                            </Row>
                           </div>
                         </div>
                       </div>
-
                     </formaGroup>
                     <FormGroup>
                       <InputGroup className="input-group-alternative mb-3">
@@ -67,7 +71,7 @@ class Factura extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Cilindraje" type="text" />
+                        <Input placeholder=" Numero" type="number" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -77,7 +81,7 @@ class Factura extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Modelo" type="text" />
+                        <Input placeholder=" Descripción" type="text" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -87,9 +91,10 @@ class Factura extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder=" Marca" type="text" />
+                        <Input placeholder=" subtotal" type="number" />
                       </InputGroup>
                     </FormGroup>
+                   
                     <FormGroup>
                       <InputGroup className="input-group-alternative">
                         <InputGroupAddon addonType="prepend">
@@ -97,7 +102,7 @@ class Factura extends React.Component {
                             <i className="ni ni-hat-3" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="Color" type="text" />
+                        <Input placeholder="IVA" type="number" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -107,7 +112,7 @@ class Factura extends React.Component {
                             <i className="ni ni-email-83" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="No. pasajeros" type="tel" />
+                        <Input placeholder="Descuento" type="number" />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
@@ -117,7 +122,7 @@ class Factura extends React.Component {
                             <i className="ni ni-email-83" />
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="Placa" type="email" />
+                        <Input placeholder="total" type="number" />
                       </InputGroup>
                     </FormGroup>
 

@@ -49,6 +49,7 @@ var routes = [
     component: Index,
     layout: "/admin"
   },
+ 
   {
     path: "/vehiculo",
     name: "Vehiculos",
