@@ -16,8 +16,31 @@ import {
 import Select from 'react-select'
 class seguro extends Component {
   state = {
-  tipoSelected: null
+    tipoSelected: null,
+    id_seguros:'',
+    nombre:'',
+    Descripción:'',
+    Fecha_exp:'',
+    Fecha_vto:'',
+    Estado:'',
+    precio:'',
   }
+
+  getInputText = (value, placeholder, type, icon) =>{
+    return(
+    <FormGroup>
+                  <InputGroup className="input-group-alternative mb-3">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className={icon} />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input value={value} placeholder={placeholder} type={type} />
+                  </InputGroup>
+                </FormGroup>
+    )                
+  }
+
   render() {
     const tipo_seguro = [
       { label: 'Todo riesgo', value: 1 },
@@ -53,8 +76,6 @@ class seguro extends Component {
                       </Col>
                     </Row>
               <Form role="form">
-
-               
               <formaGroup>
                       <div className="text-center">
                         <div className="mb-4 form-group">
@@ -73,76 +94,20 @@ class seguro extends Component {
                         </div>
                       </div>
                     </formaGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder=" Identificación" type="Number" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder=" Nombre" type="text" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder=" Descripción" type="text" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder=" Fecha de expedición" type="date" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Fecha de vencimiento" type="date" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder=" Estado" type="text" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder=" Precio" type="number" />
-                  </InputGroup>
-                </FormGroup>
+                    
+              {this.getInputText(this.state.id_seguros, "Ingresala identificacin de seguro", "number", "ni ni-hat-3")} 
+              
+              {this.getInputText(this.state.id_seguros, "Ingresa el nombre del seguro", "text", "ni ni-hat-3")} 
+              
+              {this.getInputText(this.state.id_seguros, "Ingresa la descripción del seguro", "text", "ni ni-hat-3")} 
+              
+              {this.getInputText(this.state.id_seguros, "Ingresa la fecha de expedición del seguro", "date", "ni ni-hat-3")} 
+              
+              {this.getInputText(this.state.id_seguros, "Ingresala la fecha de vencimiento del seguro", "date", "ni ni-hat-3")} 
+               
+              {this.getInputText(this.state.id_seguros, "Ingresala el estado del seguro", "text", "ni ni-hat-3")} 
+              {this.getInputText(this.state.id_seguros, "Ingresala el precio del seguro", "number", "ni ni-hat-3")} 
+                
                 <Row className="my-4">
                   <Col xs="12">
 

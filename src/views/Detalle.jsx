@@ -18,9 +18,21 @@ import {
 } from "reactstrap";
 // core components
 import UserHeader from "components/Headers/UserHeader.jsx";
-
+import Select from 'react-select'
 class Dealle extends React.Component {
+   state = {
+    tipoSelected: null
+  } 
   render() {
+    const vehiculo = [
+      { label: 'Moto', value: 1 },
+      { label: 'Carro', value: 2 },
+    ]
+    const tarifa = [
+      { label: 'Diaria', value: 1 },
+      { label: 'Semanal', value: 2 },
+       { label: 'Mensual', value: 3 },
+    ]
     return (
       <>
         <UserHeader />
@@ -51,43 +63,19 @@ class Dealle extends React.Component {
                       <div className="text-center text-muted mb-4">
                         <small>Ingrese sus datos</small>
                       </div>
-                      <Form role="form">
-                        <div className="text-center ">
-
-                          <div className="Seleccionar">
-                            <FormGroup>
-                              <InputGroup className="input-group-alternative mb-0">
-                                <InputGroupAddon addonType="prepend">
-                                  <InputGroupText>
-
-                                    <Input placeholder=" Vehículo" />
-                                    <select>
-                                      <option>Seleccionar</option>
-                                      <option>Carro</option>
-                                      <option>Moto</option>
-                                    </select>
-                                  </InputGroupText>
-                                </InputGroupAddon>
-                              </InputGroup>
-                            </FormGroup>
-                            <FormGroup>
-                              <InputGroup className="input-group-alternative mb-3">
-                                <InputGroupAddon addonType="prepend">
-                                  <InputGroupText>
-
-                                    <Input placeholder=" Tarifa" />
-                                    <select>
-                                      <option>Seleccionar</option>
-                                      <option>Diaria</option>
-                                      <option>Semanal</option>
-                                    </select>
-                                  </InputGroupText>
-                                </InputGroupAddon>
-                              </InputGroup>
-                            </FormGroup>
-                          </div>
-                        </div>
-
+                     <Row between="xs" className="mb-3 mt-3">
+                      <Col xl='12'>
+                        <label className="form-control-label" htmlFor="input-username"> Vehiculo</label>
+                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={vehiculo} placeholder={'Seleccione un tipo de vehiculo'}/>
+                      </Col>
+                    </Row>
+                    <Row between="xs" className="mb-3 mt-3">
+                      <Col xl='12'>
+                        <label className="form-control-label" htmlFor="input-username"> Tarifa</label>
+                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={tarifa} placeholder={'Seleccione el tipo de tarifa'}/>
+                      </Col>
+                    </Row>
+                     <Form role="form">
                         <FormGroup>
                           <InputGroup className="input-group-alternative">
                             <InputGroupAddon addonType="prepend">

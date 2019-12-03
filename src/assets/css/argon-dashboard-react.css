@@ -10724,6 +10724,9 @@ textarea[resize="horizontal"] {
 
 .header {
   position: relative; }
+.Espacio{
+  padding-top: 4px;
+}
 
 .icon {
   width: 3rem;

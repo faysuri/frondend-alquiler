@@ -3,62 +3,111 @@ import React, { Component } from "react";
 
 // reactstrap components
 import {
-  Button,
   Card,
   CardBody,
   CardTitle,
-  Form,
-  Input,
   Row,
   Col,
 
 } from "reactstrap";
 
-
 import Select from 'react-select'
-import Checkbox from './Checkbox'
 
-const items = [
-  'One',
-  'Two',
-  'Three',
-]
 class Alquiler extends Component {
   state = {
-    tipoSelected: null
+    tipoSelected: null,
+    vehiculos: [
+      {
+        id_vehiculo: 1, 
+        cilindraje:'xxxx',
+        modelo:'xxxx',
+        marca:'Mazda',
+        color:'',
+        n_pasajeros:'',
+        placa: 'xxxxxx',
+        estado: false,
+      },
+            {
+        id_vehiculo: 2, 
+        cilindraje:'xxxx',
+        modelo:'xxxx',
+        marca:'Toyota',
+        color:'',
+        n_pasajeros:'',
+        placa: 'xxxxxx',
+        estado: false,
+      },
+            {
+        id_vehiculo: 3, 
+        cilindraje:'xxxx',
+        modelo:'xxxx',
+        marca:'Crypton',
+        color:'',
+        n_pasajeros:'',
+        placa: 'xxxxxx',
+        estado: false,
+      },
+            {
+        id_vehiculo: 4, 
+        cilindraje:'xxxx',
+        modelo:'xxxx',
+        marca:'',
+        color:'',
+        n_pasajeros:'',
+        placa: 'xxxxxx',
+        estado: false,
+      },
+    ]
   }
-  componentWillMount = () => {
-    this.selectedCheckboxes = new Set();
+ 
+  onChangeCheck = vehicule => {
+    console.log(vehicule)
+    let array = [...this.state.vehiculos];
+    array.map(vehi => vehi.id_vehiculo === vehicule.id_vehiculo ? vehi.estado = !vehi.estado : vehi )
+    console.log(array)
+    this.setState({vehiculos: [...array]})
   }
 
-  toggleCheckbox = label => {
-    if (this.selectedCheckboxes.has(label)) {
-      this.selectedCheckboxes.delete(label);
-    } else {
-      this.selectedCheckboxes.add(label);
-    }
+  getCard(vehiculo){
+    return (
+      <Col lg="6" xl="3">
+        <Card className="card-stats mb-4 mb-xl-0" onClick={() => this.onChangeCheck(vehiculo)}>
+          <CardBody>
+            <Row>
+              <div className="col">
+                          <CardTitle
+                            tag="h5"
+                            className="text-uppercase text-muted mb-0"
+                          >
+                           {vehiculo.marca}
+                          </CardTitle>
+                          <img
+                            alt="..."
+                            className="rounded-circle"
+                            src={require("assets/img/theme/v2.jpg")}
+                          />
+                        </div>
+                      </Row>
+                      <div className="custom-control custom-control-alternative custom-checkbox ">
+                  <input
+                    className="custom-control-input"
+                    type="checkbox"
+                    checked={vehiculo.estado}
+                    value={vehiculo.estado}
+                    
+                  />
+                  <label
+                    className="custom-control-label"
+                    htmlFor=" customCheckLogin"
+                  >
+                    <span className="text-muted">Seleccionar</span>
+                  </label>
+                </div>
+                    </CardBody>
+                  </Card>
+                </Col>
+    )
   }
-
-  handleFormSubmit = formSubmitEvent => {
-    formSubmitEvent.preventDefault();
-
-    for (const checkbox of this.selectedCheckboxes) {
-      console.log(checkbox, 'is selected.');
-    }
-  }
-
-  createCheckbox = label => (
-    <Checkbox
-            label={label}
-            handleCheckboxChange={this.toggleCheckbox}
-            key={label}
-        />
-  )
-
-  createCheckboxes = () => (
-    items.map(this.createCheckbox)
-  )
-
 
   render() {
     const tipo_vehiculo = [
@@ -67,32 +116,7 @@ class Alquiler extends Component {
     ]
     return (
       <>
-       <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-
-            <form onSubmit={this.handleFormSubmit}>
-              {this.createCheckboxes()}
-
-              <button className="btn btn-default" type="submit">Save</button>
-            </form>
-
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-
-            <form onSubmit={this.handleFormSubmit}>
-              {this.createCheckboxes()}
-
-              <button className="btn btn-default" type="submit">Save</button>
-            </form>
-
-          </div>
-        </div>
-      </div>
+      
         <div>
           <h1> Alquiler</h1>
         </div>
@@ -121,122 +145,22 @@ class Alquiler extends Component {
                         <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={tipo_vehiculo} placeholder={'Seleccione un tipo de vehícculo'}/>
                       </Col>
                     </Row>
-                  <Form role="form">
-                  <formaGroup>
-                      <div className="text-center">
-                        <div className="mb-4 form-group">
-                          <div class="input-group-alternative input-group">
-                            <Row>
-                              <Col xs='12' xl="10">
-                                <Input class="form-control" type="number" placeholder="Identificación"/> 
-                              </Col>
-                              <Col xl="1" className="ml-1">
-                                <Button color="primary" type="button">
-                                  <i class="fas fa-search"></i>
-                                </Button>
-                              </Col>
-                            </Row>
-                          </div>
-                        </div>
-                      </div>
-                    </formaGroup>
-                   
-                  </Form>
                 </CardBody>
               </Card>
-            </Col>
-            
+            </Col>            
           </Row>
-          
         </div>
-            <div className="header-body">
+        
+            <div className="header-body ">
               {/* Card stats */}
-              <Row>
-                <Col lg="6" xl="3">
-                  <Card className="card-stats mb-4 mb-xl-0">
-                    <CardBody>
-                      <Row>
-                        <div className="col">
-                          <CardTitle
-                            tag="h5"
-                            className="text-uppercase text-muted mb-0"
-                          >
-                            Mazda
-                          </CardTitle>
-                          <img
-                            alt="..."
-                            className="rounded-circle"
-                            src={require("assets/img/theme/v2.jpg")}
-                          />
-                        </div>
-                      </Row>
-                    </CardBody>
-                  </Card>
-                </Col>
-                <Col lg="6" xl="3">
-                  <Card className="card-stats mb-4 mb-xl-0">
-                    <CardBody>
-                      <Row>
-                        <div className="col">
-                          <CardTitle
-                            tag="h5"
-                            className="text-uppercase text-muted mb-0"
-                          >
-                            Mazda
-                          </CardTitle>
-                          <img
-                            alt="..."
-                            className="rounded-circle"
-                            src={require("assets/img/theme/v2.jpg")}
-                          />
-                        </div>
-                      </Row>
-                    </CardBody>
-                  </Card>
-                </Col>
-                <Col lg="6" xl="3">
-                  <Card className="card-stats mb-4 mb-xl-0">
-                    <CardBody>
-                      <Row>
-                        <div className="col">
-                          <CardTitle
-                            tag="h5"
-                            className="text-uppercase text-muted mb-0"
-                          >
-                            Mazda
-                          </CardTitle>
-                          <img
-                            alt="..."
-                            className="rounded-circle"
-                            src={require("assets/img/theme/v2.jpg")}
-                          />
-                        </div>
-                      </Row>
-                    </CardBody>
-                  </Card>
-                </Col>
-                <Col lg="6" xl="3">
-                  <Card className="card-stats mb-4 mb-xl-0">
-                    <CardBody>
-                      <Row>
-                        <div className="col">
-                          <CardTitle
-                            tag="h5"
-                            className="text-uppercase text-muted mb-0"
-                          >
-                            Mazda
-                          </CardTitle>
-                          <img
-                            alt="..."
-                            className="rounded-circle"
-                            src={require("assets/img/theme/v2.jpg")}
-                          />
-                        </div>
-                      </Row>
-                    </CardBody>
-                  </Card>
-                </Col>
+              <div class="MuiFormGroup-root MuiFormGroup-row">
+              <Row className="mt-3">
+                
+               
+              { this.state.vehiculos.map(vehiculo => this.getCard(vehiculo))}
+                
               </Row>
+              </div>
             </div>
       </>
     );
