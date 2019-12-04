@@ -18,6 +18,29 @@ import {
 
 } from "reactstrap";
 class Entrega extends React.Component {
+  state = {
+    identificación: '',
+    Fecha: '',
+    Estado_entrega: '',
+    Descripcion: '',
+    esado_recibido: '',
+
+  }
+
+  getInputText = (value, placeholder, type, icon) => {
+    return (
+      <FormGroup>
+        <InputGroup className="input-group-alternative mb-3">
+          <InputGroupAddon addonType="prepend">
+            <InputGroupText>
+              <i className={icon} />
+            </InputGroupText>
+          </InputGroupAddon>
+          <Input value={value} placeholder={placeholder} type={type} />
+        </InputGroup>
+      </FormGroup>
+    )
+  }
   render() {
     return (
       <>
@@ -25,7 +48,7 @@ class Entrega extends React.Component {
           <h1> Registrar Entrega</h1>
         </div>
         <Container className="mt--30" fluid>
-        
+
           <Row className="justify-content-center">
 
             <Col lg="5" md="18">
@@ -46,14 +69,13 @@ class Entrega extends React.Component {
                     <small>Ingrese sus datos</small>
                   </div>
                   <Form role="form">
-                   
-                  <formaGroup>
+                    <formaGroup>
                       <div className="text-center">
                         <div className="mb-4 form-group">
                           <div class="input-group-alternative input-group">
                             <Row>
                               <Col xs='12' xl="10">
-                                <Input class="form-control" type="text" placeholder="Placa vehículo"/> 
+                                <Input class="form-control" type="text" placeholder="Placa vehículo" />
                               </Col>
                               <Col xl="1" className="ml-1">
                                 <Button color="primary" type="button">
@@ -65,57 +87,10 @@ class Entrega extends React.Component {
                         </div>
                       </div>
                     </formaGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Identificación" type="number" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Fecha" type="date" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Estado de entrega" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Descripción" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Estado entrega" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                   
+                    {this.getInputText(this.state.identificación, "Numero de entrega", "number", "ni ni-hat-3")}
+                    {this.getInputText(this.state.Fecha, "Ingresa la fecha", "Date", "ni ni-hat-3")}
+                    {this.getInputText(this.state.descripcion, "Ingresa la descipcion de la entrega", "text", "ni ni-hat-3")}
+                    {this.getInputText(this.state.Estado_entrega, "Ingresa la descripción del seguro", "text", "ni ni-hat-3")}
                     <Row className="my-4">
                       <Col xs="12">
 
@@ -130,9 +105,9 @@ class Entrega extends React.Component {
                 </CardBody>
               </Card>
             </Col>
-            
+
           </Row>
-        
+
         </Container>
       </>
     );

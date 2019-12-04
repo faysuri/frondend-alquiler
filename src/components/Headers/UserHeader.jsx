@@ -25,7 +25,7 @@ class UserHeader extends React.Component {
         <div
          // className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
           style={{
-            minHeight: "800px",
+            minHeight: "900px",
             backgroundImage:
               "url(" + require("assets/img/theme/av.png") + ")",
             backgroundSize: "cover",

@@ -51,9 +51,9 @@ class seguro extends Component {
 
         <h1> Seguros</h1>
         <Row className="justify-content-center">
-
+       
           <Col lg="5" md="18">
-            <Card className="bg-secondary shadow border-0">
+            <Card className="bg-secondary shadow border-10  block-example border border-dark">
               <Row className="justify-content-center">
                 <div className="card-profile-image">
                   <a href="#pablo" onClick={e => e.preventDefault()}>
@@ -96,25 +96,15 @@ class seguro extends Component {
                   </formaGroup>
 
                   {this.getInputText(this.state.id_seguros, "Ingresala identificacin de seguro", "number", "ni ni-hat-3")}
+                  {this.getInputText(this.state.nombre, "Ingresa el nombre del seguro", "text", "ni ni-hat-3")}
+                  {this.getInputText(this.state.Descripción, "Ingresa la descripción del seguro", "text", "ni ni-hat-3")}
+                  {this.getInputText(this.state.Fecha_exp, "Ingresa la fecha de expedición del seguro", "date", "ni ni-hat-3")}
+                  {this.getInputText(this.state.Fecha_vto, "Ingresala la fecha de vencimiento del seguro", "date", "ni ni-hat-3")}
+                  {this.getInputText(this.state.Estado, "Ingresala el estado del seguro", "text", "ni ni-hat-3")}
+                  {this.getInputText(this.state.precio, "Ingresala el precio del seguro", "number", "ni ni-hat-3")}
 
-                  {this.getInputText(this.state.id_seguros, "Ingresa el nombre del seguro", "text", "ni ni-hat-3")}
-
-                  {this.getInputText(this.state.id_seguros, "Ingresa la descripción del seguro", "text", "ni ni-hat-3")}
-
-                  {this.getInputText(this.state.id_seguros, "Ingresa la fecha de expedición del seguro", "date", "ni ni-hat-3")}
-
-                  {this.getInputText(this.state.id_seguros, "Ingresala la fecha de vencimiento del seguro", "date", "ni ni-hat-3")}
-
-                  {this.getInputText(this.state.id_seguros, "Ingresala el estado del seguro", "text", "ni ni-hat-3")}
-                  {this.getInputText(this.state.id_seguros, "Ingresala el precio del seguro", "number", "ni ni-hat-3")}
-
-                  <Row className="my-4">
-                    <Col xs="12">
-
-                    </Col>
-                  </Row>
                   <div className="text-center">
-                    <Button className="mt-4" color="primary" type="button">
+                    <Button className="mt-2" color="primary" type="button">
                       Registrar
                   </Button>
                   </div>

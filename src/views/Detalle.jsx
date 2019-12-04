@@ -20,20 +20,22 @@ import {
 import UserHeader from "components/Headers/UserHeader.jsx";
 import Select from 'react-select'
 class Dealle extends React.Component {
-   state = {
+  state = {
     tipoSelected: null,
-    identificacion:0,
-    fecha:'',
-    hora:'',
-    fecha_registro:'',
-    temporada:'',
-    tiempo:'',
-    valor:'',
-  } 
+    identificacion: 0,
+    fecha_inicio: '',
+    hora_inicio: '',
+    fecha_registro: '',
+    fecha_fin: '',
+    hora_fin: '',
+    temporada: '',
+    tiempo: '',
+    valor: '',
+  }
   getInputText = (value, placeholder, type, icon) => {
     return (
       <FormGroup>
-        <InputGroup className="input-group-alternative mb-3">
+        <InputGroup className="input-group-alternative mb-1">
           <InputGroupAddon addonType="prepend">
             <InputGroupText>
               <i className={icon} />
@@ -52,22 +54,20 @@ class Dealle extends React.Component {
     const tarifa = [
       { label: 'Diaria', value: 1 },
       { label: 'Semanal', value: 2 },
-       { label: 'Mensual', value: 3 },
+      { label: 'Mensual', value: 3 },
     ]
     return (
       <>
         <UserHeader />
         {/* Page content */}
-        
+
         <Container className="mt-1 fondo mask bg-gradient-default opacity-8" fluid>
           <div className="subir">
             <div>
               <h1> Detalle</h1>
             </div>
             <div className="margen" >
-
               <Row className="justify-content-center">
-
                 <Col lg="5" md="18">
                   <Card className="bg-secondary shadow border-0">
                     <Row className="justify-content-center">
@@ -82,92 +82,33 @@ class Dealle extends React.Component {
                       </div>
                     </Row>
                     <CardBody className="px-lg-5 py-lg-4">
-                      <div className="text-center text-muted mb-4">
-                        <small>Ingrese sus datos</small>
-                      </div>
-                     <Row between="xs" className="mb-3 mt-3">
-                      <Col xl='12'>
-                        <label className="form-control-label" htmlFor="input-username"> Vehiculo</label>
-                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={vehiculo} placeholder={'Seleccione un tipo de vehiculo'}/>
-                      </Col>
-                    </Row>
-                    <Row between="xs" className="mb-3 mt-3">
-                      <Col xl='12'>
-                        <label className="form-control-label" htmlFor="input-username"> Tarifa</label>
-                        <Select className="selectFont" value={this.state.tipoSelected}  onChange={this.onChangeUnit} options={tarifa} placeholder={'Seleccione el tipo de tarifa'}/>
-                      </Col>
-                    </Row>
-                     <Form role="form">
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-hat-3" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input placeholder="Identificación" type="number" />
-                          </InputGroup>
-                        </FormGroup>
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative mb-3">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-email-83" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input placeholder="Fecha" type="Date" />
-                          </InputGroup>
-                        </FormGroup>
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative mb-3">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-email-83" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input placeholder="Hora" type="Tyme" />
-                          </InputGroup>
-                        </FormGroup>
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative mb-3">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-email-83" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input placeholder="Fecha" type="Date" />
-                          </InputGroup>
-                        </FormGroup>
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative mb-3">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-email-83" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input placeholder="Hora" type="Tyme" />
-                          </InputGroup>
-                        </FormGroup>
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative mb-3">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-email-83" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input placeholder="temporada" type="text" />
-                          </InputGroup>
-                        </FormGroup>
+                      <Row between="xs" className="mb-3 mt-3">
+                        <Col xl='12'>
+                          <label className="form-control-label" htmlFor="input-username"> Vehiculo</label>
+                          <Select className="selectFont" value={this.state.tipoSelected} onChange={this.onChangeUnit} options={vehiculo} placeholder={'Seleccione un tipo de vehiculo'} />
+                        </Col>
+                      </Row>
+                      <Row between="xs" className="mb-3 mt-1">
+                        <Col xl='12'>
+                          <label className="form-control-label" htmlFor="input-username"> Tarifa</label>
+                          <Select className="selectFont" value={this.state.tipoSelected} onChange={this.onChangeUnit} options={tarifa} placeholder={'Seleccione el tipo de tarifa'} />
+                        </Col>
+                      </Row>
+                      <Form role="form">
+                        {this.getInputText(this.state.identificacion, "Ingresar la identificación", "number", "ni ni-hat-3")}
+                        {this.getInputText(this.state.fecha_inicio, "Ingresa la fecha", "Date", "ni ni-hat-3")}
+                        {this.getInputText(this.state.hora_inicio, "Ingresa la hora inicio", "Tyme", "ni ni-hat-3")}
+                        {this.getInputText(this.state.fecha_registro, "Ingresa la fecha de registro", "Date", "ni ni-hat-3")}
+                        {this.getInputText(this.state.fecha_fin, "Fecha recibido", "Date", "ni ni-hat-3")}
+                        {this.getInputText(this.state.hora_fin, "Ingresar la hora de la entrega", "Tyme", "ni ni-hat-3")}
+                        {this.getInputText(this.state.temporada, "Ingresa la temporada", "text", "ni ni-hat-3")}
+                        {this.getInputText(this.state.tiempo, "Ingresar el tiempo alquiler", "number", "ni ni-hat-3")}
+                        {this.getInputText(this.state.valor, "Ingresar el valor", "number", "ni ni-hat-3")}
 
-                        <Row className="my-4">
-                          <Col xs="12">
-
-                          </Col>
-                        </Row>
                         <div className="text-center">
-                          <Button className="mt-4" color="primary" type="button">
+                          <Button className="mt-1" color="primary" type="button">
                             Registrar
-                  </Button>
+                           </Button>
                         </div>
                       </Form>
                     </CardBody>

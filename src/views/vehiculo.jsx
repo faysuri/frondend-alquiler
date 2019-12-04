@@ -22,9 +22,30 @@ import Select from 'react-select'
 class vehiculo extends React.Component {
 
   state = {
-    tipoSelected: null
+    tipoSelected: null,
+    placa: 'cvc',
+    imagen:'',
+    modelo: '',
+    marca: '',
+    color: '',
+    cilindraje: '',
+    no_pasajeros:'',
   }
-
+  getInputText = (value, placeholder, type, icon) => {
+    return (
+      <FormGroup>
+        <InputGroup className="input-group-alternative mb-3">
+          <InputGroupAddon addonType="prepend">
+            <InputGroupText>
+              <i className={icon} />
+            </InputGroupText>
+          </InputGroupAddon>
+          <Input value={value} placeholder={placeholder} type={type} />
+        </InputGroup>
+      </FormGroup>
+    )
+  }
+ 
   render() {
 
     const tipo_vehiculo = [
@@ -94,66 +115,15 @@ class vehiculo extends React.Component {
                         </div>
                       </div>
                     </formaGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Placa" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Modelo" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-1">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder=" Marca" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-hat-3" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Color" type="text" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-1">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Cilindraje" type="tel" />
-                      </InputGroup>
-                    </FormGroup>
-                    <FormGroup>
-                      <InputGroup className="input-group-alternative mb-1">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="No. pasajeros" type="number" />
-                      </InputGroup>
-                    </FormGroup>
+                   
+                    {this.getInputText(this.state.placa, "Ingresa la placa del vehículo", "text", "ni ni-hat-3")}
+                    {this.getInputText(this.state.imagen, "Ingresa la placa del vehículo", "image", "ni ni-hat-3")}
+                    {this.getInputText(this.state.modelo, "Ingresa el modelo del vehículo", "text", "ni ni-hat-3")}
+                    {this.getInputText(this.state.marca, "Ingresa la marca del vehículo", "text", "ni ni-hat-3")}
+                    {this.getInputText(this.state.color, "Ingresa el color del vehículo", "text", "ni ni-hat-3")}
+                    {this.getInputText(this.state.cilindraje, "Ingresa la placa del vehículo", "number", "ni ni-hat-3")}
+                    {this.getInputText(this.state.no_pasajeros, "Ingresa la placa del vehículo", "number", "ni ni-hat-3")}
+                    
                     <Row className="my-4">
                       <Col xs="12">
                       </Col>
@@ -167,9 +137,7 @@ class vehiculo extends React.Component {
                 </CardBody>
               </Card>
             </Col>
-
           </Row>
-
         </Container>
       </>
     );
