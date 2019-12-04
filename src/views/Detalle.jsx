@@ -21,8 +21,29 @@ import UserHeader from "components/Headers/UserHeader.jsx";
 import Select from 'react-select'
 class Dealle extends React.Component {
    state = {
-    tipoSelected: null
+    tipoSelected: null,
+    identificacion:0,
+    fecha:'',
+    hora:'',
+    fecha_registro:'',
+    temporada:'',
+    tiempo:'',
+    valor:'',
   } 
+  getInputText = (value, placeholder, type, icon) => {
+    return (
+      <FormGroup>
+        <InputGroup className="input-group-alternative mb-3">
+          <InputGroupAddon addonType="prepend">
+            <InputGroupText>
+              <i className={icon} />
+            </InputGroupText>
+          </InputGroupAddon>
+          <Input value={value} placeholder={placeholder} type={type} />
+        </InputGroup>
+      </FormGroup>
+    )
+  }
   render() {
     const vehiculo = [
       { label: 'Moto', value: 1 },
@@ -37,7 +58,8 @@ class Dealle extends React.Component {
       <>
         <UserHeader />
         {/* Page content */}
-        <Container className="mt--7" fluid>
+        
+        <Container className="mt-1 fondo mask bg-gradient-default opacity-8" fluid>
           <div className="subir">
             <div>
               <h1> Detalle</h1>
